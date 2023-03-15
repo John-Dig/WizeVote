@@ -8,10 +8,20 @@
 <hr />
 <h2>List of choices</h2>
 <ol>
+  @Html.BeginForm(){
     @foreach (Choice aChoice in Model.Choices){
-        <li>@aChoice.Description</li>
+        
+        <li>@aChoice.Description</li> //add in how many votes each choice has 
+        @Html.LabelFor()
+        @Html.CheckBox( $"{aChoice.Description}", false, new value = "value = @aChoice.ChoiceId") //<-- checkbox
+
+       @Html.CheckBoxFor(x => x.Test, new { @checked = "checked" })
     }
+  }
 </ol>
 <hr />
+
 @Html.ActionLink("Add new choice","Create","Choices", new { id = Model.TopicId })</p>
 
+
+  

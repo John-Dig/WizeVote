@@ -7,7 +7,7 @@
   
   @using (Html.BeginForm())
   {
-    @Html.Hidden("TopicId", (string)ViewBag.TopicIdFromBag)
+    @Html.Hidden("TopicId", (int)ViewBag.TopicIdFromBag)
     @Html.LabelFor(model => model.Description)
     @Html.TextBoxFor(model => model.Description)
   

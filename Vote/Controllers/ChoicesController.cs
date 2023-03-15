@@ -41,11 +41,12 @@ namespace Vote.Controllers
       }
 
       [HttpPost]
-      public ActionResult Create(Choice Choice)
+      public ActionResult Create(Choice Choice, int TopicId)
       {
+        Choice.TopicId = TopicId;
         _db.Choices.Add(Choice);
         _db.SaveChanges();
-        return RedirectToAction("Index");
+        return RedirectToAction("Details","Topics", new { id = Choice.TopicId });
       }
 
       
