@@ -11,16 +11,16 @@ A voting app
 ```mermaid
 flowchart LR
 b-->v(template)
-b()-->h()
-b-->O()
-h-->i()
-v-->v2()
-v-->v3()
-v-->v4()
-v-->v5()
-O-->o1()
-O-->o2()
-O-->o3()
+b(a)-->h(a)
+b-->O(a)
+h-->i(a)
+v-->v2(a)
+v-->v3(a)
+v-->v4(a)
+v-->v5(a)
+O-->o1(a)
+O-->o2(a)
+O-->o3(a)
 
 
 
