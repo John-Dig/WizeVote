@@ -36,7 +36,7 @@ namespace Vote.Controllers
 
     //   Tag thisTag = _db.Tags.FirstOrDefault(tags => tags.TagId == id);
     //   ViewBag.ItemId = new SelectList(_db.Items, "ItemId", "Description");
-      return View(TopicId);
+      return View();
 
       }
 
