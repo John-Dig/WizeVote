@@ -12,11 +12,10 @@
     @foreach (Choice aChoice in Model.Choices){
         
         <li>@aChoice.Description</li> //add in how many votes each choice has 
-        @Html.LabelFor()
-        @Html.CheckBox( $"{aChoice.Description}", false, new value = "value = @aChoice.ChoiceId") //<-- checkbox
+        @Html.CheckBox( $"{aChoice.Description}", false) //<-- checkbox
 
-       @Html.CheckBoxFor(x => x.Test, new { @checked = "checked" })
     }
+    <input type="submit" value="Vote"/>
   }
 </ol>
 <hr />
