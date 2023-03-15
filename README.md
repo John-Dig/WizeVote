@@ -8,21 +8,13 @@ A voting app
 
 ## Flow Chart
 
+
 ```mermaid
 flowchart LR
-b-->v(template)
-b(a)-->h(a)
-b-->O(a)
-h-->i(a)
-v-->v2(a)
-v-->v3(a)
-v-->v4(a)
-v-->v5(a)
-O-->o1(a)
-O-->o2(a)
-O-->o3(a)
-
-
-
+Topics-->topic1(Some Topic)
+Topics-->topic2(Topic for later)
+topic1--> a[option 1]
+topic1--> b[option 2]
+topic1--> c[option 3]
 
 ```
