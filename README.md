@@ -13,8 +13,8 @@ A voting app
 flowchart LR
 Topics-->topic1(Some Topic)
 Topics-->topic2(Topic for later)
-topic1--> a[option 1]
-topic1--> b[option 2]
-topic1--> c[option 3]
+topic1--> a[choice 1]
+topic1--> b[choice 2]
+topic1--> c[choice 3]
 
 ```

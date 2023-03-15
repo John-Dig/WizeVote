@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Vote.Models
+
+<h1>@Model.Name</h1>
+<hr />
+<h2>List of choices</h2>
+<ol>
+    @foreach (Choice aChoice in Model.Choices){
+        <li>@aChoice.Description</li>
+    }
+</ol>

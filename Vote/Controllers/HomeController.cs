@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ToDoList.Controllers
+namespace Vote.Controllers
 {
     public class HomeController : Controller
     {

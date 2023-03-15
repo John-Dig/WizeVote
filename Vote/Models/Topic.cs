@@ -6,6 +6,6 @@ namespace Vote.Models
   {
     public int TopicId { get; set; }
     public string Name { get; set; }
-    public List<Option> Options { get; set; }
+    public List<Choice> Choices { get; set; }
   }
 }
