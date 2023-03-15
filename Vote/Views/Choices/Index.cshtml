@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Vote.Models
+
+@if (Model.Count == 0)
+{
+    <div>No choices created yet.</div>
+}
+
+<div>
+@foreach (Choice choice in Model)
+{
+    <div>
+        <p>@Html.ActionLink($"{choice.Description}","Details", new { id = choice.ChoiceId })</p>
+    </div>
+}
+</div>
+
+<div>
+@Html.ActionLink("Add a choice","Create")
+</div>

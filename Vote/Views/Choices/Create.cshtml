@@ -1,0 +1,17 @@
+@{
+    Layout = "_Layout";
+  }
+  
+  @using Vote.Models
+  @model Vote.Models.Choice
+  
+  @using (Html.BeginForm())
+  {
+    @Html.Hidden("TopicId", (string)ViewBag.)
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)
+  
+    <input type="submit" value="Add new Choice" class="btn btn-default" />
+  }
+  
+  
