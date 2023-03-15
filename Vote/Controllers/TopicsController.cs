@@ -24,9 +24,12 @@ namespace Vote.Controllers
         return View(topics);
       }
 
-      public ActionResult Details()
+      public ActionResult Details(int id)
       {
-        return View();
+        Topic thisTopic = _db.Topics
+          .Include(Topic => Topic.Choices)
+          .FirstOrDefault(Topic => Topic.TopicId == id);
+        return View(thisTopic);
       }
 
       public ActionResult Create()
