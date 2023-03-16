@@ -14,7 +14,7 @@
     @using(Html.BeginForm()){
       @foreach (Choice aChoice in Model.Choices){
           <li>@aChoice.Description --- @aChoice.UserVotes.Count</li> //add in how many votes each choice has 
-          @Html.RadioButton( "choice", aChoice )
+          @Html.RadioButton( "choiceId", aChoice.ChoiceId )
 
       }
       <br>

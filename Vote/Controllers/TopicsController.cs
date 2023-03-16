@@ -36,11 +36,14 @@ namespace Vote.Controllers
       }
       
       [HttpPost]
-      public ActionResult Details(Choice selectedChoice, int UserId)
+      public ActionResult Details(int ChoiceId, int UserId)
       {
         User user = _db.Users
           .FirstOrDefault(user => user.UserId == UserId);
-        selectedChoice.UserVotes.Add(user);
+           Choice choice = _db.Choices
+          .Include(choice => choice.UserVotes)
+          .FirstOrDefault(Choice => Choice.ChoiceId == ChoiceId);
+        choice.UserVotes.Add(user);
         _db.SaveChanges();
         return RedirectToAction("Details");
         
