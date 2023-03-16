@@ -8,13 +8,17 @@
 <hr />
 <h2>List of choices</h2>
 <ol>
-  @Html.BeginForm(){
+  @using(Html.BeginForm()){
     @foreach (Choice aChoice in Model.Choices){
         
         <li>@aChoice.Description</li> //add in how many votes each choice has 
-        @Html.CheckBox( $"{aChoice.Description}", false) //<-- checkbox
+        @Html.RadioButton( aChoice.Description, false, new { @value = $"{aChoice.ChoiceId}" }) //<-- checkbox
 
     }
+    <br>
+    @Html.Label("Select User")
+    @Html.DropDownList("UserId")
+    <br>
     <input type="submit" value="Vote"/>
   }
 </ol>

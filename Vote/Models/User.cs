@@ -6,7 +6,6 @@ namespace Vote.Models
   {
     public string Name { get; set; }
     public int UserId { get; set; }
-    //public List<ChoiceUser> JoinEntities { get; }
-    //public List<TopicChoice> JoinEntities { get; } //collection navigation property
+    public List<ChoiceUser> JoinEntities { get;}
   }
 }

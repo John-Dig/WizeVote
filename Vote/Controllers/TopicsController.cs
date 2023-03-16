@@ -28,8 +28,25 @@ namespace Vote.Controllers
       {
         Topic thisTopic = _db.Topics
           .Include(Topic => Topic.Choices)
+          .ThenInclude(User => User.JoinEntities)
+          .ThenInclude(join => join.User)
           .FirstOrDefault(Topic => Topic.TopicId == id);
         return View(thisTopic);
+      
+      //       Category thisCategory = _db.Categories
+      //                           .Include(cat => cat.Items)
+      //                           .ThenInclude(item => item.JoinEntities)
+      //                           .ThenInclude(join => join.Tag)
+      //                           .FirstOrDefault(category => category.CategoryId == id);
+      // return View(thisCategory);
+
+      }
+      
+      [HttpPost]
+      public ActionResult Details(int id, int value)
+      {
+        //  dynamc TestObj = new { TestId = value };
+        return RedirectToAction("Result", value);
       }
 
       public ActionResult Create()
@@ -44,8 +61,5 @@ namespace Vote.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
       }
-
-      
-
     }
 }
