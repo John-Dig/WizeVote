@@ -30,8 +30,7 @@ namespace Vote.Controllers
         ViewBag.UserId = new SelectList(_db.Users, "UserId", "Name");
         Topic thisTopic = _db.Topics
           .Include(Topic => Topic.Choices)
-          .ThenInclude(User => User.JoinEntities)
-          .ThenInclude(join => join.User)
+          .ThenInclude(choice => choice.UserVotes)
           .FirstOrDefault(Topic => Topic.TopicId == id);
         return View(thisTopic);
       }

@@ -7,22 +7,27 @@
 <h1>@Model.Name</h1>
 <hr />
 <h2>List of choices</h2>
-<ol>
-  @using(Html.BeginForm()){
-    @foreach (Choice aChoice in Model.Choices){
-        
-        <li>@aChoice.Description --- @aChoice.UserVotes.Count</li> //add in how many votes each choice has 
-        @Html.RadioButton( "choice", aChoice ) //<-- checkbox
 
+  @if (Model.Choices.Count > 0)
+  {
+  <ol>
+    @using(Html.BeginForm()){
+      @foreach (Choice aChoice in Model.Choices){
+          <li>@aChoice.Description --- @aChoice.UserVotes.Count</li> //add in how many votes each choice has 
+          @Html.RadioButton( "choice", aChoice )
+
+      }
+      <br>
+      @Html.Label("Select User")
+      @Html.DropDownList("UserId")
+      <br>
+      <input type="submit" value="Vote"/>
     }
-    <br>
-    @Html.Label("Select User")
-    @Html.DropDownList("UserId")
-    <br>
-    <input type="submit" value="Vote"/>
+  </ol>
+  <hr />
+
   }
-</ol>
-<hr />
+
 
 @Html.ActionLink("Add new choice","Create","Choices", new { id = Model.TopicId })</p>
 
