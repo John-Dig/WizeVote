@@ -4,7 +4,7 @@ flowchart TB
 SplashPage--view voting-->Topics("/topics"<br>list of Topics)--Add a topic-->TopicsCreate("/Topics/Create")--add new topic-->Topics
 Topics--"{clicked topic}"-->TDetails("/Topics/Details/#"<br>VOTE PAGE<br>List of Choices <br>1.<br>2.)
 TDetails--Add a new Choice-->CCreate("/Choices/Create/#"<br>Description___)--Add new Choice-->TDetails
-SplashPage-->UIndex?
+SplashPage-->UserCreate(/user/create<br>)
 ```
 
 
