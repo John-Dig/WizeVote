@@ -1,3 +1,10 @@
+# new flow chart
+```mermaid
+flowchart LR
+WizeVote-->HomeController(Some Topic)
+
+
+```
 ## TLDR
 
 A voting app
@@ -8,7 +15,7 @@ A voting app
 
 ## Flow Chart
 
-
+<!-- 
 ```mermaid
 flowchart LR
 Topics-->topic1(Some Topic)
@@ -17,4 +24,4 @@ topic1--> a[choice 1]
 topic1--> b[choice 2]
 topic1--> c[choice 3]
 
-```
+``` -->
