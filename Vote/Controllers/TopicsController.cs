@@ -26,12 +26,15 @@ namespace Vote.Controllers
 
       public ActionResult Details(int id)
       {
+        ViewBag.UserId = new SelectList(_db.Users, "UserId", "Name");
         Topic thisTopic = _db.Topics
           .Include(Topic => Topic.Choices)
-          .ThenInclude(User => User.JoinEntities)
-          .ThenInclude(join => join.User)
+          // .ThenInclude(User => User.JoinEntities)
+          // .ThenInclude(join => join.User)
           .FirstOrDefault(Topic => Topic.TopicId == id);
         return View(thisTopic);
+
+
       
       //       Category thisCategory = _db.Categories
       //                           .Include(cat => cat.Items)
@@ -45,7 +48,6 @@ namespace Vote.Controllers
       [HttpPost]
       public ActionResult Details(int id, int value)
       {
-        //  dynamc TestObj = new { TestId = value };
         return RedirectToAction("Result", value);
       }
 
