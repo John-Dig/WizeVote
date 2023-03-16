@@ -23,9 +23,8 @@ namespace Vote.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(User inputUser, string name)
+        public ActionResult Create(User inputUser)
         {
-            inputUser.Name = name;
             _db.Users.Add(inputUser);
             _db.SaveChanges();
             return RedirectToAction("Index","Home");

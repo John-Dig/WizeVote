@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Vote.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Vote.Controllers
 {
@@ -29,26 +30,26 @@ namespace Vote.Controllers
         ViewBag.UserId = new SelectList(_db.Users, "UserId", "Name");
         Topic thisTopic = _db.Topics
           .Include(Topic => Topic.Choices)
-          // .ThenInclude(User => User.JoinEntities)
-          // .ThenInclude(join => join.User)
+          .ThenInclude(User => User.JoinEntities)
+          .ThenInclude(join => join.User)
           .FirstOrDefault(Topic => Topic.TopicId == id);
         return View(thisTopic);
-
-
-      
-      //       Category thisCategory = _db.Categories
-      //                           .Include(cat => cat.Items)
-      //                           .ThenInclude(item => item.JoinEntities)
-      //                           .ThenInclude(join => join.Tag)
-      //                           .FirstOrDefault(category => category.CategoryId == id);
-      // return View(thisCategory);
-
       }
       
       [HttpPost]
-      public ActionResult Details(int id, int value)
+      public ActionResult Details(Choice selectedChoice, int UserId)
       {
-        return RedirectToAction("Result", value);
+        User user = _db.Users
+          .FirstOrDefault(user => user.UserId == UserId);
+        selectedChoice.UserVotes.Add(user);
+        _db.SaveChanges();
+        return RedirectToAction("Details");
+        
+        // foreach(User aUser in userList){
+        //   if(aUser.UserId = ourUserId){
+        //     //then do some thing
+        //   }
+        // }
       }
 
       public ActionResult Create()
