@@ -38,14 +38,25 @@ namespace Vote.Controllers
       [HttpPost]
       public ActionResult Details(int ChoiceId, int UserId)
       {
-        User user = _db.Users
-          .FirstOrDefault(user => user.UserId == UserId);
-           Choice choice = _db.Choices
-          .Include(choice => choice.UserVotes)
-          .FirstOrDefault(Choice => Choice.ChoiceId == ChoiceId);
-        choice.UserVotes.Add(user);
+        // User user = _db.Users
+        //   .FirstOrDefault(user => user.UserId == UserId);
+        //    Choice choice = _db.Choices
+        //   .Include(choice => choice.UserVotes)
+        //   .FirstOrDefault(Choice => Choice.ChoiceId == ChoiceId);
+        // choice.UserVotes.Add(user);
+        // _db.SaveChanges();
+        // return RedirectToAction("Details");
+
+      #nullable enable
+      ChoiceUser? joinEntity = _db.ChoiceUsers.FirstOrDefault(join => (join.ChoiceId == ChoiceId && join.UserId == UserId));
+      #nullable disable
+      if (joinEntity == null && ChoiceId != 0)
+      {
+        _db.ChoiceUsers.Add(new ChoiceUser() { ChoiceId = ChoiceId, UserId = UserId });
         _db.SaveChanges();
-        return RedirectToAction("Details");
+      }
+      return RedirectToAction("Details");
+
         
         // foreach(User aUser in userList){
         //   if(aUser.UserId = ourUserId){
