@@ -1,47 +1,47 @@
 html {
-  background-color:dimgray;
+  background-color:khaki
 }
 
 h1 {
-color:darkgreen;
+  color: #008080; /* Teal */
 }
 
 h2 {
-  color:black;
+  color: #333333; /* Dark gray */
 }
 
 h3 {
-  color:darkgreen
+  color: #006400; /* Dark green */
 }
+
 a:hover {
-  color: green;
+  color: #32CD32; /* Lime green */
   text-decoration: underline;
-
 }
+
 a {
-  color:blue;
+  color:cornsilk;
 }
-
 
 body {
   margin: 2rem;
-  background-color:cadetblue;
-  border-radius:10px;
-  border-style: ridge;
-  border-width:15px;
-  padding:1rem;
+  background-color: #F8F8FF; /* Ghost white */
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #A9A9A9; /* Dark gray */
+  padding: 1rem;
   width: 50%;
   margin-left: 100px;
   margin-top: 100px;
-  
-
 }
+
 form {
   text-align: right;
 }
 
 input {
-  margin:5px;
+  margin: 5px;
 }
 
 button {
@@ -49,11 +49,11 @@ button {
 }
 
 div#footer {
-  position:fixed;
-  bottom:0px;
-  left:0px;
-  width:100%;
-  color:#CCC;
-  background:#333;
-  padding:8px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  color: #FFF;
+  background: #333;
+  padding: 8px;
 }
