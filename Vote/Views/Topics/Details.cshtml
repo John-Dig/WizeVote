@@ -13,13 +13,13 @@
   <ol>
     @using(Html.BeginForm()){
       @foreach (Choice aChoice in Model.Choices){
-          <li>@aChoice.Description --- @aChoice.UserVotes.Count</li> //add in how many votes each choice has 
+          @* <li>@aChoice.Description --- @aChoice.UserVotes.Count</li> //add in how many votes each choice has  *@
           @Html.RadioButton( "choiceId", aChoice.ChoiceId )
 
       }
       <br>
-      @Html.Label("Select User")
-      @Html.DropDownList("UserId")
+      @* @Html.Label("Select User")
+      @Html.DropDownList("UserId") *@
       <br>
       <input type="submit" value="Vote"/>
     }

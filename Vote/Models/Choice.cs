@@ -7,8 +7,8 @@ namespace Vote.Models
     public int ChoiceId { get; set; }
     public int TopicId { get; set; }
     public string Description { get; set; }
-    public List<User> UserVotes { get; set; }
-    public List<ChoiceUser> JoinEntities { get;}
+   // public List<User> UserVotes { get; set; }
+   // public List<ChoiceUser> JoinEntities { get;}
 
     public int VoteCount { get; set; }
   
