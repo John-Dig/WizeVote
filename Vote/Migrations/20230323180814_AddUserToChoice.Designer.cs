@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vote.Models;
 
@@ -10,9 +11,11 @@ using Vote.Models;
 namespace Vote.Migrations
 {
     [DbContext(typeof(VoteContext))]
-    partial class VoteContextModelSnapshot : ModelSnapshot
+    [Migration("20230323180814_AddUserToChoice")]
+    partial class AddUserToChoice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
