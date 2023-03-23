@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Vote.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace WizeVote
+namespace Vote
 {
   class Program
   {
@@ -25,6 +25,16 @@ namespace WizeVote
       builder.Services.AddIdentity<ApplicationUser, IdentityRole>()//added for identity
                 .AddEntityFrameworkStores<VoteContext>()//added for identity
                 .AddDefaultTokenProviders();//added for identity
+
+      builder.Services.Configure<IdentityOptions>(options =>
+      {
+        options.Password.RequireDigit = false;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequiredLength = 3;
+        options.Password.RequiredUniqueChars = 0;
+      });
 
       WebApplication app = builder.Build();
 
